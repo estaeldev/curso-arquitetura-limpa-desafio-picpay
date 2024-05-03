@@ -4,6 +4,6 @@ import br.com.curso.core.domain.Transaction;
 
 public interface CreateTransaction {
     
-    void create(Transaction transaction);
+    Transaction create(Transaction transaction);
 
 }

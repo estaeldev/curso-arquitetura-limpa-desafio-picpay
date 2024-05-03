@@ -1,9 +1,9 @@
 package br.com.curso.usecase;
 
-import br.com.curso.core.domain.Transaction;
+import java.math.BigDecimal;
 
 public interface TransferUse {
     
-    Boolean transfer(Transaction transaction);
+    Boolean transfer(String fromTaxNumber, String toTaxNumber, BigDecimal value);
 
 }
