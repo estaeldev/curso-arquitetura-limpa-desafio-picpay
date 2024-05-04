@@ -40,8 +40,7 @@ public class CreateUserImpl implements CreateUser {
             throw new EmailException(ErrorCodeEnum.ON0003.getMessage(), ErrorCodeEnum.ON0003.getCode());
         }
 
-        Boolean isUserSaved = this.createUserGateway.create(user, new Wallet(BigDecimal.ZERO, user), 
-            new TransactionPin(user, pin));
+        Boolean isUserSaved = this.createUserGateway.create(user, new Wallet(BigDecimal.ZERO, user, new TransactionPin(pin)));
         
         if(Boolean.FALSE.equals(isUserSaved)) {
             throw new InternalServerErrorException(ErrorCodeEnum.ON0004.getMessage(), ErrorCodeEnum.ON0004.getCode());

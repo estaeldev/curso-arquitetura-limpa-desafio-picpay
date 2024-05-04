@@ -15,7 +15,8 @@ public enum ErrorCodeEnum {
     TR0004("Transfer Inválido, transferência não autorizada", "TR-0004"),
     
     // Error TransactionPin
-    TRP0001("Pin Inválido", "TRP-0001"),
+    PIN0001("Pin Inválido", "PIN-0001"),
+    PIN0002("Pin de transação bloqueado", "PIN-0002"),
 
     // Error Wallet
     WA0001("Carteira não encontrada", "WA-0001"),
