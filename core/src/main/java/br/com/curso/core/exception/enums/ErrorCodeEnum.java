@@ -15,7 +15,7 @@ public enum ErrorCodeEnum {
     TR0004("Transfer Inválido, transferência não autorizada", "TR-0004"),
     
     // Error TransactionPin
-    PIN0001("Pin Inválido", "PIN-0001"),
+    PIN0001("Pin Inválido, você ainda tem %d tentativa(s) restante(s)", "PIN-0001"),
     PIN0002("Pin de transação bloqueado", "PIN-0002"),
 
     // Error Wallet
@@ -42,6 +42,10 @@ public enum ErrorCodeEnum {
 
     public String getCode() {
         return code;
+    }
+
+    public static String pin0001GetMessage(Integer attempt) {
+        return String.format(PIN0001.message, attempt);
     }
 
 }

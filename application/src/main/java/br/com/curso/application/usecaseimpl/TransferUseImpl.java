@@ -45,10 +45,6 @@ public class TransferUseImpl implements TransferUse {
 
         Wallet fromWallet = this.findWalletByTaxNumber.findWalletByTaxNumber(fromTaxNumber);
         Wallet toWallet = this.findWalletByTaxNumber.findWalletByTaxNumber(toTaxNumber);
-
-        if(Boolean.TRUE.equals(fromWallet.getTransactionPin().getBlocked())) {
-            throw new PinException(ErrorCodeEnum.PIN0002.getMessage(), ErrorCodeEnum.PIN0002.getCode());
-        }
         
         this.transactionPinValidate.validate(fromWallet.getTransactionPin());
         
