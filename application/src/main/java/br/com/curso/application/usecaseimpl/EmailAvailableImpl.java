@@ -5,7 +5,7 @@ import br.com.curso.usecase.EmailAvailable;
 
 public class EmailAvailableImpl implements EmailAvailable {
 
-    private EmailAvailableGateway emailAvailableGateway;
+    private final EmailAvailableGateway emailAvailableGateway;
 
     public EmailAvailableImpl(EmailAvailableGateway emailAvailableGateway) {
         this.emailAvailableGateway = emailAvailableGateway;

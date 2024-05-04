@@ -5,7 +5,7 @@ import br.com.curso.usecase.TaxNumberAvailable;
 
 public class TaxNumberAvailableImpl implements TaxNumberAvailable {
 
-    private TaxNumberAvailableGateway taxNumberAvailableGateway;
+    private final TaxNumberAvailableGateway taxNumberAvailableGateway;
 
     public TaxNumberAvailableImpl(TaxNumberAvailableGateway taxNumberAvailableGateway) {
         this.taxNumberAvailableGateway = taxNumberAvailableGateway;

@@ -17,9 +17,9 @@ import br.com.curso.usecase.TaxNumberAvailable;
 
 public class CreateUserImpl implements CreateUser {
 
-    private TaxNumberAvailable taxNumberAvailable;
-    private EmailAvailable emailAvailable;
-    private CreateUserGateway createUserGateway;
+    private final TaxNumberAvailable taxNumberAvailable;
+    private final EmailAvailable emailAvailable;
+    private final CreateUserGateway createUserGateway;
 
     public CreateUserImpl(TaxNumberAvailable taxNumberAvailable, EmailAvailable emailAvailable,
             CreateUserGateway createUserGateway) {
