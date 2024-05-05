@@ -59,7 +59,7 @@ public class TransactionPin {
     private void pinIsValid(String pin) throws TransactionPinException {
 
         if(pin.length() != 8) {
-            throw new TransactionPinException(ErrorCodeEnum.TR0001.getMessage(), ErrorCodeEnum.TR0001.getCode());
+            throw new TransactionPinException(ErrorCodeEnum.PIN0003.getMessage(), ErrorCodeEnum.PIN0003.getCode());
         }
 
     }
