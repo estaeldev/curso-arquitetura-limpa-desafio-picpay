@@ -5,6 +5,6 @@ import br.com.curso.core.exception.NotFoundException;
 
 public interface FindWalletByTaxNumber {
 
-    Wallet findWalletByTaxNumber(String taxNumber) throws NotFoundException;
+    Wallet findWalletByTaxNumber(String taxNumber) throws NotFoundException, Exception;
 
 }

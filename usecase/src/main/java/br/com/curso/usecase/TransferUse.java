@@ -11,6 +11,6 @@ import br.com.curso.core.exception.TransferException;
 public interface TransferUse {
     
     Boolean transfer(String fromTaxNumber, String toTaxNumber, BigDecimal value, String pin)
-        throws InternalServerErrorException, TransferException, NotFoundException, NotificationException, PinException;
+        throws InternalServerErrorException, TransferException, NotFoundException, NotificationException, PinException, Exception;
 
 }

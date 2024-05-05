@@ -17,7 +17,7 @@ public class FindWalletByTaxNumberImpl implements FindWalletByTaxNumber {
     }
 
     @Override
-    public Wallet findWalletByTaxNumber(String taxNumber) throws NotFoundException {
+    public Wallet findWalletByTaxNumber(String taxNumber) throws Exception {
         
         Wallet wallet = this.findWalletByTaxNumberGateway.findWalletByTaxNumber(taxNumber);
 

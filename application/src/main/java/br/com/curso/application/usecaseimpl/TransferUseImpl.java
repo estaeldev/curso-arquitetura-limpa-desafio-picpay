@@ -6,10 +6,7 @@ import br.com.curso.application.gateway.TransferGateway;
 import br.com.curso.core.domain.Transaction;
 import br.com.curso.core.domain.Wallet;
 import br.com.curso.core.exception.InternalServerErrorException;
-import br.com.curso.core.exception.NotFoundException;
 import br.com.curso.core.exception.NotificationException;
-import br.com.curso.core.exception.PinException;
-import br.com.curso.core.exception.TransferException;
 import br.com.curso.core.exception.enums.ErrorCodeEnum;
 import br.com.curso.usecase.CreateTransaction;
 import br.com.curso.usecase.FindWalletByTaxNumber;
@@ -41,7 +38,7 @@ public class TransferUseImpl implements TransferUse {
 
     @Override
     public Boolean transfer(String fromTaxNumber, String toTaxNumber, BigDecimal value, String pin) 
-        throws InternalServerErrorException, TransferException, NotFoundException, NotificationException, PinException {
+        throws Exception {
 
         Wallet fromWallet = this.findWalletByTaxNumber.findWalletByTaxNumber(fromTaxNumber);
         Wallet toWallet = this.findWalletByTaxNumber.findWalletByTaxNumber(toTaxNumber);
