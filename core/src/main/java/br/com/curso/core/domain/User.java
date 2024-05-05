@@ -13,7 +13,6 @@ public class User {
     private TaxNumber taxNumber; 
     private String fullname;
     private UserTypeEnum type;
-    private TransactionPin transactionPin;
     private final LocalDateTime createdAt;
     private LocalDateTime updateAt;
 
@@ -21,27 +20,24 @@ public class User {
         this.createdAt = LocalDateTime.now();
     }
 
-    public User(UUID id, String email, String password, TaxNumber taxNumber, String fullname, UserTypeEnum type,
-            TransactionPin transactionPin, LocalDateTime createdAt, LocalDateTime updateAt) {
+    public User(UUID id, String email, String password, TaxNumber taxNumber, String fullname, UserTypeEnum type, 
+        LocalDateTime createdAt, LocalDateTime updateAt) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.taxNumber = taxNumber;
         this.fullname = fullname;
         this.type = type;
-        this.transactionPin = transactionPin;
         this.createdAt = createdAt;
         this.updateAt = updateAt;
     }
 
-    public User(String email, String password, TaxNumber taxNumber, String fullname, UserTypeEnum type,
-            TransactionPin transactionPin) {
+    public User(String email, String password, TaxNumber taxNumber, String fullname, UserTypeEnum type) {
         this.email = email;
         this.password = password;
         this.taxNumber = taxNumber;
         this.fullname = fullname;
         this.type = type;
-        this.transactionPin = transactionPin;
         this.createdAt = LocalDateTime.now();
     }
 
@@ -93,14 +89,6 @@ public class User {
         this.type = type;
     }
 
-    public TransactionPin getTransactionPin() {
-        return transactionPin;
-    }
-
-    public void setTransactionPin(TransactionPin transactionPin) {
-        this.transactionPin = transactionPin;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -123,7 +111,6 @@ public class User {
         result = prime * result + ((taxNumber == null) ? 0 : taxNumber.hashCode());
         result = prime * result + ((fullname == null) ? 0 : fullname.hashCode());
         result = prime * result + ((type == null) ? 0 : type.hashCode());
-        result = prime * result + ((transactionPin == null) ? 0 : transactionPin.hashCode());
         result = prime * result + ((createdAt == null) ? 0 : createdAt.hashCode());
         result = prime * result + ((updateAt == null) ? 0 : updateAt.hashCode());
         return result;
@@ -165,11 +152,6 @@ public class User {
             return false;
         if (type != other.type)
             return false;
-        if (transactionPin == null) {
-            if (other.transactionPin != null)
-                return false;
-        } else if (!transactionPin.equals(other.transactionPin))
-            return false;
         if (createdAt == null) {
             if (other.createdAt != null)
                 return false;
@@ -183,7 +165,6 @@ public class User {
         return true;
     }
 
-    
     
 
 }
