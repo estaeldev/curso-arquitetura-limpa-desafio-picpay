@@ -2,22 +2,23 @@ package br.com.curso.application.usecaseimpl;
 
 import java.math.BigDecimal;
 
-import br.com.curso.application.gateway.ConsultBalanceGateway;
 import br.com.curso.core.domain.Wallet;
 import br.com.curso.usecase.ConsultBalance;
+import br.com.curso.usecase.FindWalletByTaxNumber;
 
 public class ConsultBalanceImpl implements ConsultBalance {
 
-    private final ConsultBalanceGateway consultBalanceGateway;
+    private final FindWalletByTaxNumber findWalletByTaxNumber;
 
-    public ConsultBalanceImpl(ConsultBalanceGateway consultBalanceGateway) {
-        this.consultBalanceGateway = consultBalanceGateway;
+    public ConsultBalanceImpl(FindWalletByTaxNumber findWalletByTaxNumber) {
+        this.findWalletByTaxNumber = findWalletByTaxNumber;
     }
 
     @Override
-    public BigDecimal consult(Wallet wallet) {
-
-        return consultBalanceGateway.consult(wallet);
+    public BigDecimal consult(String taxNumber) throws Exception {
+        
+        Wallet wallet = this.findWalletByTaxNumber.findWalletByTaxNumber(taxNumber);
+        return wallet.getBalance();
 
     }
 
