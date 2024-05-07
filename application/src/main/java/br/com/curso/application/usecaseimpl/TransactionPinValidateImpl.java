@@ -19,13 +19,13 @@ public class TransactionPinValidateImpl implements TransactionPinValidate {
     }
 
     @Override
-    public void validate(TransactionPin transactionPin) throws PinException {
+    public void validate(TransactionPin transactionPin, String pin) throws PinException {
 
         if(Boolean.TRUE.equals(transactionPin.getBlocked())) {
             throw new PinException(ErrorCodeEnum.PIN0002.getMessage(), ErrorCodeEnum.PIN0002.getCode());
         }
 
-        Boolean isTransactionPinValidate = this.transactionPinValidateGateway.validate(transactionPin);
+        Boolean isTransactionPinValidate = this.transactionPinValidateGateway.validate(transactionPin, pin);
 
         if(Boolean.FALSE.equals(isTransactionPinValidate)) {
             transactionPin.setAttempt();

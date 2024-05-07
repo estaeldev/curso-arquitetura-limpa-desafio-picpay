@@ -27,9 +27,8 @@ public class UserConfig {
     }
     
     @Bean
-    CreateUser createUser(TaxNumberAvailable taxNumberAvailable, EmailAvailable emailAvailable,
-            CreateUserGateway createUserGateway) {
-        return new CreateUserImpl(taxNumberAvailable, emailAvailable, createUserGateway);
+    CreateUser createUser(CreateUserGateway createUserGateway) {
+        return new CreateUserImpl(createUserGateway);
     }
 
 

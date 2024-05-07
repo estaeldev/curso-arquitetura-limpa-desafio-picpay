@@ -12,33 +12,18 @@ import br.com.curso.core.exception.TaxNumberException;
 import br.com.curso.core.exception.TransactionPinException;
 import br.com.curso.core.exception.enums.ErrorCodeEnum;
 import br.com.curso.usecase.CreateUser;
-import br.com.curso.usecase.EmailAvailable;
-import br.com.curso.usecase.TaxNumberAvailable;
 
 public class CreateUserImpl implements CreateUser {
 
-    private final TaxNumberAvailable taxNumberAvailable;
-    private final EmailAvailable emailAvailable;
     private final CreateUserGateway createUserGateway;
 
-    public CreateUserImpl(TaxNumberAvailable taxNumberAvailable, EmailAvailable emailAvailable,
-            CreateUserGateway createUserGateway) {
-        this.taxNumberAvailable = taxNumberAvailable;
-        this.emailAvailable = emailAvailable;
+    public CreateUserImpl(CreateUserGateway createUserGateway) {
         this.createUserGateway = createUserGateway;
     }
 
     @Override
     public void create(User user, String pin) 
         throws TaxNumberException, EmailException, TransactionPinException, InternalServerErrorException  {
-
-        if(Boolean.FALSE.equals(this.taxNumberAvailable.taxNumberAvailable(user.getTaxNumber().getValue()))) {
-            throw new TaxNumberException(ErrorCodeEnum.ON0002.getMessage(), ErrorCodeEnum.ON0002.getCode());
-        }
-
-        if(Boolean.FALSE.equals(this.emailAvailable.emailAvailable(user.getEmail()))) {
-            throw new EmailException(ErrorCodeEnum.ON0003.getMessage(), ErrorCodeEnum.ON0003.getCode());
-        }
 
         Boolean isUserSaved = this.createUserGateway.create(user, new Wallet(BigDecimal.ZERO, user, new TransactionPin(pin)));
         

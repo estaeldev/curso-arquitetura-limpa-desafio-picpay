@@ -61,24 +61,12 @@ public class WalletConfig {
     }
     
     @Bean
-    TransferUse transferUse(FindWalletByTaxNumber findWalletByTaxNumber, 
-                            TransactionValidate transactionValidate, 
-                            CreateTransaction createTransaction, 
-                            TransferGateway transferGateway, 
-                            UserNotification userNotification,
-                            TransactionPinValidate transactionPinValidate) {
+    TransferUse transferUse(TransferGateway transferGateway) {
 
-        return new TransferUseImpl(
-            findWalletByTaxNumber, 
-            transactionValidate, 
-            createTransaction, 
-            transferGateway, 
-            userNotification, 
-            transactionPinValidate
-        );
+        return new TransferUseImpl(transferGateway);
         
     }
 
-
+    
 
 }

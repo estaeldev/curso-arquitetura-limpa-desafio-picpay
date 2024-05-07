@@ -13,6 +13,8 @@ import br.com.curso.infrastructure.dto.request.UserRequest;
 import br.com.curso.infrastructure.dto.response.BaseResponse;
 import br.com.curso.infrastructure.mapper.UserMapper;
 import br.com.curso.usecase.CreateUser;
+import br.com.curso.usecase.EmailAvailable;
+import br.com.curso.usecase.TaxNumberAvailable;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -22,11 +24,17 @@ public class UserController {
     
     private final CreateUser createUser;
     private final UserMapper userMapper;
+    private final EmailAvailable emailAvailable;
+    private final TaxNumberAvailable taxNumberAvailable;
 
     @PostMapping
     public ResponseEntity<BaseResponse<?>> create(@RequestBody final UserRequest userRequest) throws Exception {
 
         LOG.info("Inicio da criação do usuário::UserController");
+
+        this.emailAvailable.emailAvailable(userRequest.email());
+
+        this.taxNumberAvailable.taxNumberAvailable(userRequest.taxNumber());
 
         this.createUser.create(this.userMapper.toUser(userRequest), userRequest.pin());
 

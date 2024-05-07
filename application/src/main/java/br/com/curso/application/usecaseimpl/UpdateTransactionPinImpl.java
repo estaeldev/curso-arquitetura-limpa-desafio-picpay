@@ -15,9 +15,8 @@ public class UpdateTransactionPinImpl implements UpdateTransactionPin {
     @Override
     public TransactionPin update(TransactionPin transactionPin) {
         
-        
+        return this.updateTransactionPinGateway.update(transactionPin);
 
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
     
 }
